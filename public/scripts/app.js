@@ -49,7 +49,6 @@ angular.module('myApp',[])
     .attr("r", function(d) { return 0.5 * Math.sqrt(1695); })
     .style("fill", function(d){ return "hsl(" + Math.random() * 360 + ",100%,50%)"; } )
     .on("mouseover", function(d) { mouseover_node(d); })
-    .on("mouseout", function(d) { mouseout_node(d) })
     .call(force.drag);
 
     var label = main.selectAll(".node_label")
@@ -60,7 +59,7 @@ angular.module('myApp',[])
     .attr("dy", ".4em")
     .attr("font-family", "Verdana")
     .attr("font-size", 10)
-    .style("fill", "#000000")
+    .style("fill", "#676A6C")
     .text(function(d) { return d.names; });
 
     force.on("tick", function() {
@@ -88,19 +87,6 @@ angular.module('myApp',[])
           status:z.status
         }
       })
-    };
-
-    var mouseout_node = function(z){
-      link
-      .style("stroke-opacity", 0.2);
-
-      node
-      .style("stroke-width", 1)
-
-      label
-      .attr("font-size", 10)
-      .style("fill-opacity", 1)
-
     };
   });
 
